@@ -1,0 +1,86 @@
+1)
+use TiendaInformatica;
+db.createCollection('Fabricante');
+db.createCollection('Articulo');
+db.Fabricante.insertMany([{codigo:1234,nombre:'sony'},{codigo:2323,nombre:'LogiTech'},{codigo:4545,nombre:'Dell'},{codigo:2522,nombre:'Lenovo'}]);
+db.Articulos.insertMany([{codigo:1234,nombre:'Buffer3D',precio:120,fabricante:{codigo:1234,nombre:'sony'}},{codigo:2458,nombre:'Mouse SX2',precio:45,fabricante:{codigo:1234,nombre:'sony'}},{codigo:7894,nombre:'Pantalla Sony 1080',precio:50,fabricante:{codigo:1234,nombre:'sony'}},{codigo:7893,nombre:'Logitech G435',precio:60,fabricante:{codigo:2323,nombre:'LogiTech'}},{codigo:7412,nombre:'Logitech MK470',precio:42,fabricante:{codigo:2323,nombre:'LogiTech'}},{codigo:2268,nombre:'Dell Inspiron 15',precio:729,fabricante:{codigo:4545,nombre:'Dell'}},{codigo:5982,nombre:'Dell s2721ds',precio:280,fabricante:{codigo:4545,nombre:'Dell'}},{codigo:9143,nombre:'Lenovo IdeaPad3',precio:750,fabricante:{codigo:2522,nombre:'Lenovo'}}]);
+
+
+2)
+use Empleados;
+db.createCollection('Empleados');
+db.createCollection('Departamentos');
+db.Departamentos.insertMany([{codigo:1234,nombre:'Informatica',presupuesto:45000},{codigo:4567,nombre:'Contabilidad',presupuesto:20000},{codigo:6532,nombre:'Ventas',presupuesto:25000}]);
+db.Empleados.insertMany([{dni:'43597789r',nombre:'Alvaro',apellidos:'Bernabey',departamento:'635646ab44bed641a1c79573'},{dni:'44597789r',nombre:'Ramiro',apellidos:'Becerra',departamento:'635646ab44bed641a1c79575'},{dni:'45597789r',nombre:'Juana',apellidos:'Arco',departamento:'635646ab44bed641a1c79575'},{dni:'46597789r',nombre:'Julieta',apellidos:'Vanegas',departamento:'635646ab44bed641a1c79573'},{dni:'47597789r',nombre:'Lucas',apellidos:'Cortez',departamento:'635646ab44bed641a1c79573'},{dni:'48597789r',nombre:'Fabri',apellidos:'Juarez',departamento:'635646ab44bed641a1c79573'},{dni:'49597789r',nombre:'Martina',apellidos:'Moro',departamento:'635646ab44bed641a1c79574'}]);
+
+
+3)
+use Almacenes;
+db.createCollection('Almacenes');
+db.createCollection('Cajas');
+db.Almacenes.insertMany([{codigo:1234,lugar:'Aribaru 35',capacidad:5},{codigo:4567,lugar:'RocaFort 22',capacidad:19},{codigo:2255,lugar:'Raval 21',capacidad:12},{codigo:7894,lugar:'Cerdanyola 98',capacidad:7},{codigo:2301,lugar:'Montaner 360',capacidad:26}]);
+db.Cajas.insertMany([{numRef:'12345',contenido:'Xiami Pro 12',valor:400,almacen:'63564c3244bed641a1c7957d'},{numRef:'56812',contenido:'Samsumng 70PL',valor:900,almacen:'63564c3244bed641a1c7957d'},{numRef:'87465',contenido:'Yerba Mate',valor:100,almacen:'63564c3244bed641a1c7957e'},{numRef:'62018',contenido:'Pelotas Padel',valor:250,almacen:'63564c3244bed641a1c7957f'},{numRef:'98703',contenido:'Inflador',valor:300,almacen:'63564c3244bed641a1c7957f'},{numRef:'41036',contenido:'Web Cam SX2',valor:70,almacen:'63564c3244bed641a1c79580'},{numRef:'96012',contenido:'Llaveros Varios',valor:130,almacen:'63564c3244bed641a1c79581'}]);
+
+
+4)
+use PeliculasySalas;
+db.createCollection('Salas');
+db.createCollection('Peliculas');
+db.Peliculas.insertMany([{codigo:1498567,nombre:'BatMan Arkham City',edad:16},{codigo:7492031,nombre:'Avatar',edad:12},{codigo:5971065,nombre:'Vengadores: Endgame',edad:16},{codigo:2013954,nombre:'Titanic',edad:18},{codigo:0396874,nombre:'El Rey León',edad:0}]);
+db.Salas.insertMany([
+{codigo:1236,nombre:'4b',pelicula:{codigo:1498567,nombre:'BatMan Arkham City',edad:16}}
+,{codigo:4532,nombre:'1a',pelicula:{codigo:7492031,nombre:'Avatar',edad:12}}
+,{codigo:7036,nombre:'2a',pelicula:{codigo:5971065,nombre:'Vengadores: Endgame',edad:16}}
+,{codigo:1032,nombre:'1b',pelicula:{codigo:0396874,nombre:'El Rey León',edad:0}}]);
+
+
+5)
+use LosDirectores;
+db.createCollection('Directores');
+db.createCollection('Despachos');
+db.Despachos.insertMany([{numero:1,capacidad:5},{numero:2,capacidad:25},{numero:3,capacidad:50}]);
+db.Empleados.insertMany([{dni:'43597789r',nomApels:'Alvaro Bernabey',dniJefe:'',despacho:'{numero:1,capacidad:5}'},{dni:'44597789r',nomApels:'Ramiro Becerra',dniJefe:'43597789r',despacho:'{numero:2,capacidad:25}'},{dni:'45597789r',nomApels:'Juana Arco',dniJefe:'43597789r',despacho:'{numero:2,capacidad:25}'},{dni:'46597789r',nomApels:'Julieta Vanegas',dniJefe:'43597789r',despacho:'{numero:2,capacidad:25}'},{dni:'47597789r',nomApels:'Lucas Cortez',dniJefe:'46597789r',despacho:'{numero:3,capacidad:50}'},{dni:'48597789r',nomApels:'Fabri Juarez',dniJefe:'46597789r',despacho:'{numero:3,capacidad:50}'},{dni:'49597789r',nomApels:'Martina Moro',dniJefe:'46597789r',despacho:'{numero:3,capacidad:50}'}]);
+
+
+6)
+use PiezasyProveedores;
+db.createCollection('Piezas');
+db.createCollection('Suministra');
+db.createCollection('Proveedores');
+db.Piezas.insertMany([{codigo:1234,nombre:'Tornillo 1mm'},{codigo:2134,nombre:'Tuerca 1mm'},{codigo:1534,nombre:'Pico Manguera'}]);
+db.Proveedores.insertMany([{id:2547,nombre:'Alvaro Bernabey'},{id:5987,nombre:'Jose Ramirez'}]);
+db.Suministra.insertMany([{pieza:{codigo:1234,nombre:'Tornillo 1mm'},proveedor:{id:2547,nombre:'Alvaro Bernabey'},precio:100},{pieza:{codigo:2134,nombre:'Tuerca 1mm'},proveedor:{codigo:1234,nombre:'Tornillo 1mm'},precio:50},{pieza:{codigo:1534,nombre:'Pico Manguera'},proveedor:{id:5987,nombre:'Jose Ramirez'},precio:25}]);
+
+
+7)
+use GrandesAlmacenes;
+db.createCollection('Cajeros');
+db.createCollection('Productos');
+db.createCollection('Venta');
+db.createCollection('MaquinasRegistradoras');
+db.Cajeros.insertMany([{codigo:1234,nomApels:'Jaime Rodriguez'},{codigo:2245,nomApels:'Roberto Carlos'}]);
+db.Productos.insertMany([{codigo:2659,nombre:'Queso de Cabra',precio:10},{codigo:9847,nombre:'Pack Cerveza',precio:3},{codigo:9048,nombre:'Arroz',precio:1},{codigo:3408,nombre:'Leche',precio:4}]);
+db.MaquinasRegistradoras.insertMany([{codigo:19876,piso:1},{codigo:59741,piso:2}]);
+db.Venta.insertMany([{cajero:{codigo:1234,nomApels:'Jaime Rodriguez'},maquina:{codigo:19876,piso:1},producto:{codigo:2659,nombre:'Queso de Cabra',precio:10}},{cajero:{codigo:1234,nomApels:'Jaime Rodriguez'},maquina:{codigo:19876,piso:1},producto:{codigo:9847,nombre:'Pack Cerveza',precio:3}},{cajero:{codigo:2245,nomApels:'Roberto Carlos'},maquina:{codigo:59741,piso:2},producto:{codigo:9048,nombre:'Arroz',precio:1}},{cajero:{codigo:2245,nomApels:'Roberto Carlos'},maquina:{codigo:59741,piso:2},producto:{codigo:3408,nombre:'Leche',precio:4}}]);
+
+
+8)
+use Investigadores;
+db.createCollection('Facultad');
+db.createCollection('Investigadores');
+db.createCollection('Reserva');
+db.createCollection('Equipos');
+db.Facultad.insertMany([{codigo:1,nombre:'Facultad de Fisica'},{codigo:2,nombre:'Facultad de Matematica'}]);
+db.Investigadores.insertMany([{dni:'43597789r',nomApels:'Alvaro Bernabey',facultad:{codigo:1,nombre:'Facultad de Fisica'}},{dni:'44597789r',nomApels:'Ramiro Becerra',facultad:{codigo:1,nombre:'Facultad de Fisica'}},{dni:'45597789r',nomApels:'Juana Arco',facultad:{codigo:2,nombre:'Facultad de Matematica'}},{dni:'46597789r',nomApels:'Julieta Vanegas',facultad:{codigo:2,nombre:'Facultad de Matematica'}},{dni:'47597789r',nomApels:'Lucas Cortez',facultad:{codigo:2,nombre:'Facultad de Matematica'}}]);
+db.Equipos.insertMany([{numSerie:'abcd',nombre:'Fisica Teorica Resistencia Electromagnetica',facultad:{codigo:1,nombre:'Facultad de Fisica'}},{numSerie:'m1a3',nombre:'Algoritmos Complejos',facultad:{codigo:2,nombre:'Facultad de Matematica'}}]);
+db.Reserva.insertMany([{equipo:{numSerie:'abcd',nombre:'Fisica Teorica Resistencia Electromagnetica',facultad:{codigo:1,nombre:'Facultad de Fisica'}},investigadores:[{codigo:'6356d48156b45bf4715ed8e2',comienzo:'2015-03-17',fin:''},{codigo:'6356d48156b45bf4715ed8e3',comienzo:'2015-08-25',fin:''}]},{equipo:{numSerie:'m1a3',nombre:'Algoritmos Complejos',facultad:{codigo:2,nombre:'Facultad de Matematica'}},investigadores:[{codigo:'6356d48156b45bf4715ed8e4',comienzo:'2010-03-10',fin:''},{codigo:'6356d48156b45bf4715ed8e5',comienzo:'2015-03-17',fin:'2015-09-19'},{codigo:'6356d48156b45bf4715ed8e6',comienzo:'2020-03-17',fin:''}]}]);
+
+
+9)
+use Cientificos;
+db.createCollection('Cientificos');
+db.createCollection('AsignadoA');
+db.createCollection('Proyecto');
+db.Cientificos.insertMany([{dni:'43597789r',nomApels:'Alvaro Bernabey'},{dni:'45623349a',nomApels:'Ramiro Becerra'},{dni:'38488897c',nomApels:'Juana Arco'},{dni:'50302598s',nomApels:'Julieta Vanegas'},{dni:'32104569w',nomApels:'Lucas Cortez'}]);
+db.Proyecto.insertMany([{nombre:'Algoritmo de Arbol',horas:300},{nombre:'MetaVerso',horas:1000},{nombre:'Nuevas Combustiones',horas:400}]);
+db.AsignadoA.insertMany([{cientifico:'6356d85656b45bf4715ed8eb',proyecto:'6356d8bd56b45bf4715ed8f0'},{cientifico:'6356d85656b45bf4715ed8ec',proyecto:'6356d8bd56b45bf4715ed8f0'},{cientifico:'6356d85656b45bf4715ed8ed',proyecto:'6356d8bd56b45bf4715ed8f1'},{cientifico:'6356d85656b45bf4715ed8ee',proyecto:'6356d8bd56b45bf4715ed8f1'},{cientifico:'6356d85656b45bf4715ed8ef',proyecto:'6356d8bd56b45bf4715ed8f2'}]);
